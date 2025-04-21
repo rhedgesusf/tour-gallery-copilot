@@ -1,0 +1,20 @@
+import React from 'react';
+import './TourCard.css';
+
+function TourCard({ id, name, info, image, price, onRemove }) {
+  return (
+    <div className="tour-card">
+      <img src={image} alt={name} className="tour-card-image" />
+      <div className="tour-card-details">
+        <h2>{name}</h2>
+        <p className="tour-card-price">${price}</p>
+        <p className="tour-card-info">{info}</p>
+        <button className="tour-card-button" onClick={() => onRemove(id)}>
+          Not Interested
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default TourCard;
