@@ -1,5 +1,15 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Gallery from './components/Gallery';
+
+// Prompt #1
+// Fetch tours from https://course-api.com/react-tours-project using useEffect
+// Store in state: tours, loading, error
+
+// Prompt #2
+// If loading is true, display "Loading..."
+// If error, display an error message
+// Else, render Gallery with tour data
 
 function App() {
   const [tours, setTours] = useState([]);
@@ -36,14 +46,14 @@ function App() {
     return <h2>Error: {error}</h2>;
   }
 
+  const removeTour = (id) => {
+    setTours(tours.filter((tour) => tour.id !== id));
+  };
+
   return (
     <div>
       <h1>Tours</h1>
-      <ul>
-        {tours.map((tour) => (
-          <li key={tour.id}>{tour.name}</li>
-        ))}
-      </ul>
+      <Gallery tours={tours} onRemove={removeTour} />
     </div>
   );
 }
