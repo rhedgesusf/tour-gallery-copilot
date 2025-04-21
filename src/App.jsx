@@ -11,30 +11,33 @@ import Gallery from './components/Gallery';
 // If error, display an error message
 // Else, render Gallery with tour data
 
+// Prompt #3
+// If no tours are left, show a "Refresh" button to refetch the data
+
 function App() {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchTours = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch('https://course-api.com/react-tours-project');
-        if (!response.ok) {
-          throw new Error('Failed to fetch tours');
-        }
-        const data = await response.json();
-        setTours(data);
-        setError(null);
-      } catch (err) {
-        setError(err.message);
-        setTours([]);
-      } finally {
-        setLoading(false);
+  const fetchTours = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('https://course-api.com/react-tours-project');
+      if (!response.ok) {
+        throw new Error('Failed to fetch tours');
       }
-    };
+      const data = await response.json();
+      setTours(data);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+      setTours([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchTours();
   }, []);
 
@@ -49,6 +52,15 @@ function App() {
   const removeTour = (id) => {
     setTours(tours.filter((tour) => tour.id !== id));
   };
+
+  if (tours.length === 0) {
+    return (
+      <div>
+        <h2>No Tours Left</h2>
+        <button onClick={fetchTours}>Refresh</button>
+      </div>
+    );
+  }
 
   return (
     <div>
