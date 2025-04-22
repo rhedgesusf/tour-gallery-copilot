@@ -1,0 +1,23 @@
+/*
+Prompt:
+Create css for the Gallery component to render TourCard components in a responsive layout.
+The gallery should be a grid layout that adjusts the number of columns based on the screen size.
+*/
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 16px; /* Space between cards */
+  padding: 16px; /* Padding around the grid */
+  justify-content: center; /* Center the grid horizontally */
+  align-items: start; /* Align items at the top */
+  width: 100%; /* Full width of the container */
+  box-sizing: border-box; /* Include padding in width/height calculations */
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Larger cards for wider screens */
+    gap: 24px; /* Increase spacing between cards */
+  }
+}

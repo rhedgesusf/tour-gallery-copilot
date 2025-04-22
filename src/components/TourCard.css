@@ -1,0 +1,75 @@
+/*
+Prompt:
+Create css for the TourCard component to create responsive layout that handles desktop and mobile. 
+Make the card look modern and clean with a dark grey background, rounded corners, and a shadow effect.
+Make sure to include hover effects for the button and card itself.
+The card should include an image, title, price, and a button.
+The image, title, price, and a button should be in a vertical layout. 
+*/
+
+.tour-card {
+  background-color: #333; /* Dark grey background */
+  color: #fff; /* White text for contrast */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  margin: 16px;
+  display: flex;
+  flex-direction: column; /* Vertical layout */
+  max-width: 600px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.tour-card:hover {
+  transform: scale(1.03); /* Slight zoom on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.tour-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Ensures the image covers the area */
+  border-bottom: 2px solid #444; /* Subtle border for separation */
+}
+
+.tour-card-details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between elements */
+}
+
+.tour-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tour-card-price {
+  color: #2ecc71; /* Green for price */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.tour-card-info {
+  color: #ccc; /* Light grey for info text */
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.tour-card-button {
+  background-color: #e74c3c; /* Red button */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-selfX: flex-start; /* Align button to the left */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tour-card-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
