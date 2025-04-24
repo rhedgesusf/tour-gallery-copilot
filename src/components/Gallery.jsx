@@ -2,7 +2,10 @@ import React from 'react';
 import TourCard from './TourCard';
 import './Gallery.css';
 
-// Create a gallery that maps over the tours array and renders TourCard for each tour
+/*
+Prompt:
+Create a gallery that maps over the tours array and renders TourCard for each tour
+*/
 
 function Gallery({ tours, onRemove }) {
   return (
